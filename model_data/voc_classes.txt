@@ -1,0 +1,6 @@
+B-S
+out_ball
+out_word
+boardNumber
+baseBag
+bso

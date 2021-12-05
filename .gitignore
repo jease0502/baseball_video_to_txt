@@ -1,0 +1,7 @@
+model/
+output/
+save/
+pic/
+
+*.h5
+*.pyc
