@@ -1,6 +1,5 @@
 class Parameter(object):
 
-#     picture_path =  "../yolov4-tf2/VOCdevkit/VOC2007/JPEGImages/"
     picture_path = "img/"
     # savepath = "/nfs/Projects/baseball/scoreboard/cut0906/"
 #     savepath = "/home/d0752870/jease/baseball_video_to_txt/output/"

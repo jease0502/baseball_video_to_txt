@@ -24,17 +24,17 @@ class Baseball_Video_to_Txt(object):
         self.team_vel_yolo = team_yolo()
         self.basebag = Basebag("")
         self.bs = Bs(
-            "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/bs.h5")
-        self.bso = Bso("/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/bso.h5",
-                       "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/bso_number.h5")
+            "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bs.h5")
+        self.bso = Bso("/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bso.h5",
+                       "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bso_number.h5")
         self.out_ball = Out_ball(
-            "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/outballfine.h5")
+            "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/outballfine.h5")
         self.out_word = Out_word(
-            "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/out_word.h5")
+            "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/out_word.h5")
         self.team_score = Team_score(
-            "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/teamscore.h5")
-        self.boardNumber = BoardNumber("/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/crnnbn.h5",
-                                       "/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/bn.h5")
+            "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/teamscore.h5")
+        self.boardNumber = BoardNumber("/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/crnnbn.h5",
+                                       "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bn.h5")
         # self.velocity = Velocity("/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/velocity.h5")
         print("load done")
 
