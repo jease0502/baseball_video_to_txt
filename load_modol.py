@@ -22,7 +22,7 @@ class Baseball_Video_to_Txt(object):
         self.scoreboard_yolo = scoreboard_yolo()
         self.cus_yolo = cus_yolo()
         self.team_vel_yolo = team_yolo()
-        self.basebag = Basebag("")
+        self.basebag = Basebag("/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/CNNv6")
         self.bs = Bs(
             "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bs.h5")
         self.bso = Bso("/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bso.h5",
@@ -37,6 +37,8 @@ class Baseball_Video_to_Txt(object):
                                        "/home/d0752870/baseball_video_to_txt/baseball_video_to_txt/model/bn.h5")
         # self.velocity = Velocity("/home/d0752870/baseball_video_to_txt/jease0502-baseball_video_to_txt/model/velocity.h5")
         print("load done")
+        self.base_bag_flag = False
+        self.bag_img = None
 
     def position_to_txt(self, position, img):
         self.task_call_dict = {
@@ -47,7 +49,8 @@ class Baseball_Video_to_Txt(object):
             'out_ball': self.detect_out_ball,
             'out_word': self.detect_out_word,
             'B-S': self.detect_bs,
-            'teamScore': self.detect_team_score
+            'teamScore': self.detect_team_score,
+            'velocity': self.detect_velocity
         }
         data = self.task_call_dict[position](img)
         return data
@@ -65,7 +68,11 @@ class Baseball_Video_to_Txt(object):
         position.predict(img)
 
     def detect_basebag(self, img):
-        return self.basebag.predict(img)
+        if self.base_bag_flag == False:
+            self.bag_img  = img
+            self.base_bag_flag = True
+            return "No_bag"
+        return self.basebag.predict(img, self.bag_img)
 
     def detect_bs(self, img):
         return self.bs.predict(img)
@@ -83,6 +90,7 @@ class Baseball_Video_to_Txt(object):
         return self.team_score.predict(img)
 
     def detect_velocity(self, img):
+        return ""
         return self.velocity.predict(img)
 
     def detect_board_number(self, img):

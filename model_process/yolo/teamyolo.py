@@ -115,9 +115,9 @@ class YOLO(object):
     def get_pred(self, image_data, input_image_shape):
         out_boxes, out_scores, out_classes = self.yolo_model(
             [image_data, input_image_shape], training=False)
-        del self.yolo_model
-        gc.collect()
-        tf.keras.backend.clear_session()
+        # del self.yolo_model
+        # gc.collect()
+        # tf.keras.backend.clear_session()
         return out_boxes, out_scores, out_classes
 
     #---------------------------------------------------#

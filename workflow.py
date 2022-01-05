@@ -47,15 +47,20 @@ class Workflow:
         self.last_name = ""
         self.img = img
         scoreboard_img = self.model.detect_scoreboard(self.img)
-        self.model.detect_cus(scoreboard_img)
-        self.xml_anatomy(scoreboard_img)
-        # self.count = 0
-        # self.last_name = ""
-        # self.model.detect_team_velocity(scoreboard_img)
-        # self.xml_anatomy(scoreboard_img)
-        # self.data_save_to_csv()
+        # print("scoreboard_img.shape:", np.shape(scoreboard_img))
+        if scoreboard_img is None:
+            print("no scoreboard")
+        else:
+            self.model.detect_cus(scoreboard_img)
+            self.xml_anatomy(scoreboard_img)
+            # self.count = 0
+            # self.last_name = ""
+            self.model.detect_team_velocity(scoreboard_img)
+            self.xml_anatomy(scoreboard_img)
+            self.data_save_to_csv()
 
-        print(self.scoreboard_data)
+            print(self.scoreboard_data)
+            print("done1")
 
     def xml_anatomy(self, img):
         xmlBase = os.path.basename(self.xml_path)

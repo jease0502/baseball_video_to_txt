@@ -189,5 +189,5 @@ class YOLO(object):
 
                 # return top,bottom,left,right
                 return open_cv_image
-        return image
+        return None
 
